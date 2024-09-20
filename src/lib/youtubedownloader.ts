@@ -5,10 +5,10 @@ import ffmpeg from 'fluent-ffmpeg';
 import { Stream } from 'mongodb';
 
 type Result = {
-  status: Boolean;
+  status: boolean;
   path?: string;
   message?: string;
-  error?: any;
+  error?: unknown;
 };
 
 const resolusi = [
@@ -103,7 +103,7 @@ const mergeFile = async (
   pathVideo: string,
   result: string,
 ) => {
-  return new Promise(async (rejects, resolve) => {
+  return new Promise((rejects, resolve) => {
     ffmpeg()
       .addInput(pathAudio)
       .addInput(pathVideo)
